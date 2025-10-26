@@ -1,20 +1,27 @@
 import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import About from '@/components/About'
+import Services from '@/components/Services'
+import Doctors from '@/components/Doctors'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import AnimatedPlusBackground from '@/components/AnimatedPlusBackground'
+import BloodCursor from '@/components/BloodCursor'
+import MobileAmbulance from '@/components/MobileAmbulance'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <main className="min-h-screen bg-black relative overflow-hidden">
+      <AnimatedPlusBackground />
+      <BloodCursor />
       <Navbar />
-      
-      <section id="home" className="min-h-screen flex items-center justify-center pt-32">
-        <div className="text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-7xl font-bold text-gray-900 mb-6">
-            AR Hospital
-          </h1>
-          <p className="text-4xl text-gray-600 mb-4">Healing Hands</p>
-          <p className="text-2xl text-gray-500 mb-8">Personalized Care, Exceptional Outcomes</p>
-          <p className="text-lg text-gray-400">Modern, professional website with salt & pepper theme ✨</p>
-        </div>
-      </section>
-    </div>
+      <MobileAmbulance />
+      <Hero />
+      <About />
+      <Services />
+      <Doctors />
+      <Contact />
+      <Footer />
+    </main>
   )
 }

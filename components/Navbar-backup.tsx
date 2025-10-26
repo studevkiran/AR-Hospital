@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 
-type NavSection = 'default' | 'home' | 'about' | 'services' | 'contact';
+type NavSection = 'default' | 'home' | 'about' | 'services' | 'doctors' | 'contact';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<NavSection>('default');
@@ -31,6 +31,7 @@ export default function Navbar() {
   const homeRef = useRef<HTMLButtonElement>(null);
   const aboutRef = useRef<HTMLButtonElement>(null);
   const servicesRef = useRef<HTMLButtonElement>(null);
+  const doctorsRef = useRef<HTMLButtonElement>(null);
   const contactRef = useRef<HTMLButtonElement>(null);
   const defaultRef = useRef<HTMLDivElement>(null);
 
@@ -38,6 +39,7 @@ export default function Navbar() {
     { name: 'Home', href: '#home', ref: homeRef, section: 'home' as NavSection },
     { name: 'About', href: '#about', ref: aboutRef, section: 'about' as NavSection },
     { name: 'Services', href: '#services', ref: servicesRef, section: 'services' as NavSection },
+    { name: 'Doctors', href: '#doctors', ref: doctorsRef, section: 'doctors' as NavSection },
     { name: 'Contact', href: '#contact', ref: contactRef, section: 'contact' as NavSection },
   ];
 
@@ -95,6 +97,7 @@ export default function Navbar() {
       const homeSection = document.getElementById('home');
       const aboutSection = document.getElementById('about');
       const servicesSection = document.getElementById('services');
+      const doctorsSection = document.getElementById('doctors');
       const contactSection = document.getElementById('contact');
 
       // Move to Home with just 10% scroll of home section height
@@ -106,6 +109,8 @@ export default function Navbar() {
           // Check which section we're in
           if (contactSection && scrollY >= contactSection.offsetTop - 100) {
             if (activeSection !== 'contact') setActiveSection('contact');
+          } else if (doctorsSection && scrollY >= doctorsSection.offsetTop - 100) {
+            if (activeSection !== 'doctors') setActiveSection('doctors');
           } else if (servicesSection && scrollY >= servicesSection.offsetTop - 100) {
             if (activeSection !== 'services') setActiveSection('services');
           } else if (aboutSection && scrollY >= aboutSection.offsetTop - 100) {
