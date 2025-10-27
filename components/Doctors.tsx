@@ -53,10 +53,10 @@ export default function Doctors() {
   ];
 
   return (
-    <section id="doctors" className="py-24 bg-gradient-to-b from-black via-emerald-950/30 to-black relative overflow-hidden">
+    <section id="doctors" className="py-24 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
       {/* Ambient lighting */}
-      <div className="absolute top-20 left-20 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
-      <div className="absolute bottom-20 right-20 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
+      <div className="absolute top-20 left-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
+      <div className="absolute bottom-20 right-20 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -67,16 +67,16 @@ export default function Doctors() {
           className="text-center mb-16"
         >
           <div className="inline-block mb-4">
-            <Award className="w-16 h-16 text-emerald-400 mx-auto" style={{ filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.6))' }} />
+            <Award className="w-16 h-16 text-[#008A3A] mx-auto" style={{ filter: 'drop-shadow(0 0 20px rgba(0, 138, 58, 0.4))' }} />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg"
+          <h2 className="text-5xl md:text-6xl font-bold text-[#008A3A] mb-4 drop-shadow-lg"
             style={{ 
-              filter: 'drop-shadow(0 0 30px rgba(16, 185, 129, 0.4))',
+              filter: 'drop-shadow(0 0 30px rgba(0, 138, 58, 0.2))',
             }}
           >
             Our Expert Doctors
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
             Meet our team of highly qualified and experienced medical professionals
           </p>
         </motion.div>
@@ -93,7 +93,7 @@ export default function Doctors() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className="glass-effect rounded-3xl p-6 border-2 border-emerald-500/20 hover:border-emerald-500/40 transition-all h-full">
+              <div className="bg-white rounded-3xl p-6 border-2 border-green-200 hover:border-green-400 shadow-xl hover:shadow-2xl transition-all h-full">
                 {/* Doctor Image */}
                 <div className="relative h-[350px] rounded-2xl overflow-hidden mb-6">
                   <Image
@@ -108,9 +108,9 @@ export default function Doctors() {
 
                 {/* Doctor Info */}
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white">{doctor.name}</h3>
-                  <p className="text-emerald-400 text-sm font-medium">{doctor.qualification}</p>
-                  <p className="text-gray-300 text-sm">{doctor.specialization}</p>
+                  <h3 className="text-2xl font-bold text-[#008A3A]">{doctor.name}</h3>
+                  <p className="text-amber-600 text-sm font-medium">{doctor.qualification}</p>
+                  <p className="text-gray-700 text-sm">{doctor.specialization}</p>
                 </div>
 
                 {/* Hover Glow Effect */}
@@ -129,15 +129,15 @@ export default function Doctors() {
           className="mb-16"
         >
           <div className="text-center mb-6">
-            <h3 className="text-3xl md:text-4xl font-bold text-white"
+            <h3 className="text-3xl md:text-4xl font-bold text-[#008A3A]"
               style={{ 
-                filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))',
+                filter: 'drop-shadow(0 0 20px rgba(0, 138, 58, 0.2))',
               }}
             >
               Complete Medical Team
             </h3>
           </div>
-          <div className="relative w-full h-[450px] rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/20">
+          <div className="relative w-full h-[450px] rounded-3xl overflow-hidden shadow-2xl border-2 border-green-200">
             <Image
               src="/staff-bg_removed_all-removebg-preview.png"
               alt="AR Hospital Complete Medical Team"
@@ -157,7 +157,7 @@ export default function Doctors() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h3 className="text-4xl font-bold text-white mb-10 text-center">Our Specialists</h3>
+          <h3 className="text-4xl font-bold text-[#008A3A] mb-10 text-center">Our Specialists</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {allDoctors.map((doctor, index) => (
@@ -168,13 +168,13 @@ export default function Doctors() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-effect rounded-2xl p-5 border-2 border-emerald-500/20 hover:border-emerald-500/40 transition-all"
+                className="bg-white rounded-2xl p-5 border-2 border-green-200 hover:border-green-400 shadow-lg hover:shadow-xl transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="text-3xl flex-shrink-0">{doctor.icon}</div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-bold text-lg mb-1 truncate">{doctor.name}</h4>
-                    <p className="text-emerald-400 text-sm">{doctor.specialization}</p>
+                    <h4 className="text-[#008A3A] font-bold text-lg mb-1 truncate">{doctor.name}</h4>
+                    <p className="text-amber-600 text-sm">{doctor.specialization}</p>
                   </div>
                 </div>
               </motion.div>
