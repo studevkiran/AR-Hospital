@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Medical Theme - Johns Hopkins Inspired */
-  --navy-blue: #002D72;
-  --royal-blue: #0072CE;
-  --gold-accent: #FFB81C;
-  --light-blue: #E6F2FF;
-  --background: #FFFFFF;
-  --foreground: #1A1A1A;
-  --text-secondary: #4A5568;
-  --border: #E2E8F0;
+  /* Vibrant Medical Theme - Warm & Inviting */
+  --primary-teal: #00CED1;
+  --vibrant-orange: #FF6B35;
+  --warm-gold: #FFA726;
+  --deep-teal: #008B8B;
+  --coral: #FF7F50;
+  --background: #FFF8F0;
+  --foreground: #2D2D2D;
+  --text-secondary: #5D4E37;
+  --border: #FFE4CC;
 }
 
 @theme inline {
@@ -20,7 +21,7 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #FFFFFF 0%, #F7FAFC 100%);
+  background: linear-gradient(to bottom, #FFF8F0 0%, #FFE4CC 50%, #FFF8F0 100%);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
