@@ -15,7 +15,7 @@ export default function Hero() {
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
       <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-32 relative overflow-hidden bg-white"
+      className="min-h-screen flex items-center justify-center pt-32 relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-50"
     >
       {/* Enhanced lighting with balanced glow effects */}
       <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-gradient-to-br from-green-400/15 to-emerald-500/12 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '4s' }} />
@@ -66,20 +66,21 @@ export default function Hero() {
             }}
             className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 relative"
             style={{ 
-              fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-              letterSpacing: '-0.02em',
+              fontFamily: "'Poppins', 'Helvetica Neue', sans-serif",
+              letterSpacing: '-0.03em',
+              fontWeight: '900',
             }}
           >
             <span 
-              className="bg-gradient-to-r from-[#008A3A] via-[#10b981] to-[#008A3A] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#008A3A] via-[#10b981] to-[#065f46] bg-clip-text text-transparent"
               style={{
-                filter: 'drop-shadow(0 0 40px rgba(0,138,58,0.6)) drop-shadow(0 0 70px rgba(16,185,129,0.4))',
+                filter: 'drop-shadow(0 0 50px rgba(0,138,58,0.8)) drop-shadow(0 0 80px rgba(16,185,129,0.6))',
                 textShadow: `
-                  0 0 80px rgba(0,138,58,0.5),
-                  0 0 120px rgba(16,185,129,0.3),
-                  0 3px 15px rgba(0, 0, 0, 0.1)
+                  0 0 100px rgba(0,138,58,0.8),
+                  0 0 150px rgba(16,185,129,0.5),
+                  0 4px 20px rgba(0, 0, 0, 0.2)
                 `,
-                WebkitTextStroke: '1.5px rgba(0,138,58,0.2)',
+                WebkitTextStroke: '2px rgba(0,138,58,0.3)',
               }}
             >
               AR Hospital
@@ -97,21 +98,22 @@ export default function Hero() {
             }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 relative"
             style={{ 
-              fontFamily: "'Georgia', 'Times New Roman', serif",
+              fontFamily: "'Playfair Display', 'Times New Roman', serif",
               fontStyle: 'italic',
-              letterSpacing: '0.02em',
+              letterSpacing: '0.01em',
+              fontWeight: '700',
             }}
           >
             <span
-              className="bg-gradient-to-r from-[#FFD700] via-[#ECB720] to-[#FFD700] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#FFD700] via-[#F59E0B] to-[#D97706] bg-clip-text text-transparent"
               style={{
-                filter: 'drop-shadow(0 0 40px rgba(255,215,0,0.7)) drop-shadow(0 0 60px rgba(236,183,32,0.5))',
+                filter: 'drop-shadow(0 0 50px rgba(255,215,0,0.9)) drop-shadow(0 0 80px rgba(245,158,11,0.7))',
                 textShadow: `
-                  0 0 80px rgba(255,215,0,0.6),
-                  0 0 100px rgba(236,183,32,0.4),
-                  0 3px 15px rgba(0, 0, 0, 0.1)
+                  0 0 100px rgba(255,215,0,0.9),
+                  0 0 140px rgba(245,158,11,0.6),
+                  0 4px 20px rgba(0, 0, 0, 0.15)
                 `,
-                WebkitTextStroke: '1px rgba(255,215,0,0.15)',
+                WebkitTextStroke: '1.5px rgba(255,215,0,0.2)',
               }}
             >
               Healing Hands
@@ -123,7 +125,11 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0 }}
-            className="text-xl md:text-2xl text-[#1a1a1a] mb-8 font-medium drop-shadow-sm"
+            className="text-xl md:text-2xl text-[#065f46] mb-8 font-semibold drop-shadow-sm"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: '600',
+            }}
           >
             Need Medical Assistance?
           </motion.p>
