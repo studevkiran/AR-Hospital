@@ -66,7 +66,7 @@ export default function Hero() {
             }}
             className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 relative"
             style={{ 
-              fontFamily: "'Poppins', 'Helvetica Neue', sans-serif",
+              fontFamily: "'Arial Black', 'Arial Bold', Gadget, sans-serif",
               letterSpacing: '-0.03em',
               fontWeight: '900',
             }}
@@ -98,7 +98,7 @@ export default function Hero() {
             }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 relative"
             style={{ 
-              fontFamily: "'Playfair Display', 'Times New Roman', serif",
+              fontFamily: "'Times New Roman', Times, serif",
               fontStyle: 'italic',
               letterSpacing: '0.01em',
               fontWeight: '700',
@@ -127,7 +127,7 @@ export default function Hero() {
             transition={{ delay: 1.0 }}
             className="text-xl md:text-2xl text-[#065f46] mb-8 font-semibold drop-shadow-sm"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Arial', sans-serif",
               fontWeight: '600',
             }}
           >
