@@ -175,12 +175,12 @@ export default function Navbar() {
         />
       </motion.div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-b border-emerald-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#002D72] to-[#003D92] backdrop-blur-xl border-b border-blue-200/30 shadow-lg">
         <div className="hidden lg:flex items-center h-20 gap-0 relative">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center gap-3 px-6 pr-6 border-r border-emerald-500/20 bg-black/50"
+            className="flex items-center gap-3 px-6 pr-6 border-r border-blue-300/20 bg-navy-900/50"
           >
             <div className="relative w-12 h-12">
               <Image
@@ -193,23 +193,23 @@ export default function Navbar() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-white tracking-tight whitespace-nowrap">AR Hospital</h1>
-              <p className="text-emerald-400 text-xs font-medium whitespace-nowrap">Healing Hands</p>
+              <p className="text-[#FFB81C] text-xs font-medium whitespace-nowrap">Healing Hands</p>
             </div>
           </motion.div>
 
-          <div ref={defaultRef} className="w-[120px] h-20 border-r border-emerald-500/20 flex items-center justify-center" />
+          <div ref={defaultRef} className="w-[120px] h-20 border-r border-blue-300/20 flex items-center justify-center" />
 
           {navLinks.map((link) => (
             <button
               key={link.section}
               ref={link.ref}
               onClick={() => handleNavClick(link.section, link.href)}
-              className="w-[120px] h-20 border-r border-emerald-500/20 flex items-center justify-center relative group transition-all duration-300 hover:bg-emerald-500/10"
+              className="w-[120px] h-20 border-r border-blue-300/20 flex items-center justify-center relative group transition-all duration-300 hover:bg-blue-500/10"
             >
               <span className={`font-medium transition-all duration-300 ${
                 activeSection === link.section 
-                  ? 'text-emerald-400 text-lg' 
-                  : 'text-gray-300 group-hover:text-white'
+                  ? 'text-[#FFB81C] text-lg' 
+                  : 'text-white group-hover:text-[#FFB81C]'
               }`}>
                 {link.name}
               </span>
@@ -217,12 +217,12 @@ export default function Navbar() {
           ))}
 
         {/* ECG Clock - Real Time Display */}
-        <div className="w-[180px] h-20 border-r border-emerald-500/20 flex items-center justify-center flex-shrink-0 relative overflow-hidden bg-black/30">
+        <div className="w-[180px] h-20 border-r border-blue-300/20 flex items-center justify-center flex-shrink-0 relative overflow-hidden bg-[#001F52]/50">
           <div className="relative z-10 text-center">
-            <div className="text-emerald-400 text-sm font-mono font-bold tracking-wider drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]">
+            <div className="text-[#FFB81C] text-sm font-mono font-bold tracking-wider drop-shadow-[0_0_8px_rgba(255,184,28,0.6)]">
               {currentTime}
             </div>
-            <div className="text-gray-400 text-xs mt-0.5">Live Time</div>
+            <div className="text-blue-100 text-xs mt-0.5">Live Time</div>
           </div>
           
           {/* Animated ECG Wave Background - More Visible & Realistic */}
@@ -239,7 +239,7 @@ export default function Navbar() {
             {/* Realistic ECG Pattern: P wave, QRS complex, T wave */}
             <motion.path
               d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
-              stroke="#10b981"
+              stroke="#0072CE"
               strokeWidth="2.5"
               fill="none"
               filter="url(#glow)"
@@ -255,7 +255,7 @@ export default function Navbar() {
             {/* Second wave for continuous effect */}
             <motion.path
               d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
-              stroke="#10b981"
+              stroke="#0072CE"
               strokeWidth="2.5"
               fill="none"
               filter="url(#glow)"
@@ -272,7 +272,7 @@ export default function Navbar() {
           
           {/* Pulsing Heartbeat Dot */}
           <motion.div
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-[#FFB81C] rounded-full shadow-[0_0_8px_rgba(255,184,28,0.8)]"
             animate={{
               scale: [1, 1.8, 1],
               opacity: [1, 0.4, 1]
@@ -291,7 +291,7 @@ export default function Navbar() {
             href="https://wa.me/919008994827"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transition-all whitespace-nowrap inline-flex items-center gap-2"
+            className="px-6 py-3 bg-gradient-to-r from-[#0072CE] to-[#005BB5] text-white rounded-full font-medium shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all whitespace-nowrap inline-flex items-center gap-2"
           >
             <span>📱</span>
             <span>Book Appointment</span>
@@ -310,7 +310,7 @@ export default function Navbar() {
               alt="Ambulance"
               width={112}
               height={80}
-              className="object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.6)] brightness-110"
+              className="object-contain drop-shadow-[0_0_15px_rgba(0,114,206,0.6)] brightness-110"
               priority
             />
           </div>
@@ -318,7 +318,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden bg-black/95 backdrop-blur-xl">
+      <div className="lg:hidden bg-gradient-to-r from-[#002D72] to-[#003D92] backdrop-blur-xl">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -333,14 +333,14 @@ export default function Navbar() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-white whitespace-nowrap">AR Hospital</h1>
-                <p className="text-emerald-400 text-xs whitespace-nowrap">Healing Hands</p>
+                <p className="text-[#FFB81C] text-xs whitespace-nowrap">Healing Hands</p>
               </div>
             </div>
 
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-white hover:text-emerald-400 transition-colors"
+              className="p-2 text-white hover:text-[#FFB81C] transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -369,8 +369,8 @@ export default function Navbar() {
                   }}
                   className={`py-3 px-4 rounded-lg text-center font-medium transition-all ${
                     activeSection === link.section
-                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                      : 'text-gray-300 hover:bg-white/5'
+                      ? 'bg-blue-500/20 text-[#FFB81C] border border-blue-500/30'
+                      : 'text-white hover:bg-white/5'
                   }`}
                 >
                   {link.name}
@@ -382,7 +382,7 @@ export default function Navbar() {
                 href="https://wa.me/919008994827"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 py-3 px-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg text-center font-medium shadow-lg hover:shadow-emerald-500/50 transition-all"
+                className="mt-2 py-3 px-4 bg-gradient-to-r from-[#0072CE] to-[#005BB5] text-white rounded-lg text-center font-medium shadow-lg hover:shadow-blue-500/50 transition-all"
               >
                 📱 Book Appointment
               </a>
