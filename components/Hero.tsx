@@ -15,16 +15,16 @@ export default function Hero() {
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
       <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-32 relative overflow-hidden bg-gradient-to-b from-[#FFF8F0] via-[#FFE4CC]/50 to-[#FFF8F0]"
+      className="min-h-screen flex items-center justify-center pt-32 relative overflow-hidden bg-white"
     >
       {/* Enhanced lighting with balanced glow effects */}
-      <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-gradient-to-br from-orange-400/20 to-amber-500/15 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-gradient-to-br from-teal-400/15 to-cyan-500/12 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-amber-300/12 to-orange-400/10 rounded-full blur-3xl z-0" />
+      <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-gradient-to-br from-green-400/15 to-emerald-500/12 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-gradient-to-br from-yellow-400/12 to-amber-500/10 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-green-300/10 to-emerald-400/8 rounded-full blur-3xl z-0" />
       
       {/* Additional accent lights */}
-      <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] bg-amber-400/12 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
-      <div className="absolute bottom-1/4 left-1/4 w-[200px] h-[200px] bg-teal-400/10 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '7s' }} />
+      <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] bg-yellow-400/10 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
+      <div className="absolute bottom-1/4 left-1/4 w-[200px] h-[200px] bg-green-400/8 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '7s' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -40,8 +40,8 @@ export default function Hero() {
             transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
             className="mb-8 flex justify-center"
           >
-            <div className="w-32 h-32 bg-white backdrop-blur-xl rounded-3xl flex items-center justify-center shadow-2xl border-2 border-[#00CED1]/40 relative overflow-hidden group hover:scale-110 transition-transform duration-300 p-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00CED1]/25 to-[#FF7F50]/15 group-hover:from-[#00CED1]/40 transition-all duration-300" />
+            <div className="w-32 h-32 bg-white backdrop-blur-xl rounded-3xl flex items-center justify-center shadow-2xl border-2 border-[#008A3A]/40 relative overflow-hidden group hover:scale-110 transition-transform duration-300 p-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#008A3A]/20 to-[#FFD700]/10 group-hover:from-[#008A3A]/35 transition-all duration-300" />
               <Image
                 src="/A-R-Hospital-logobg-300x300.png"
                 alt="AR Hospital Logo"
@@ -71,15 +71,15 @@ export default function Hero() {
             }}
           >
             <span 
-              className="bg-gradient-to-r from-[#008B8B] via-[#00CED1] to-[#008B8B] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#008A3A] via-[#10b981] to-[#008A3A] bg-clip-text text-transparent"
               style={{
-                filter: 'drop-shadow(0 0 40px rgba(0,206,209,0.5)) drop-shadow(0 0 70px rgba(0,139,139,0.4))',
+                filter: 'drop-shadow(0 0 40px rgba(0,138,58,0.6)) drop-shadow(0 0 70px rgba(16,185,129,0.4))',
                 textShadow: `
-                  0 0 80px rgba(0,206,209,0.4),
-                  0 0 120px rgba(0,139,139,0.3),
+                  0 0 80px rgba(0,138,58,0.5),
+                  0 0 120px rgba(16,185,129,0.3),
                   0 3px 15px rgba(0, 0, 0, 0.1)
                 `,
-                WebkitTextStroke: '1.5px rgba(0,206,209,0.2)',
+                WebkitTextStroke: '1.5px rgba(0,138,58,0.2)',
               }}
             >
               AR Hospital
@@ -103,15 +103,15 @@ export default function Hero() {
             }}
           >
             <span
-              className="bg-gradient-to-r from-[#FF6B35] via-[#FFA726] to-[#FF6B35] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#FFD700] via-[#ECB720] to-[#FFD700] bg-clip-text text-transparent"
               style={{
-                filter: 'drop-shadow(0 0 40px rgba(255,107,53,0.6)) drop-shadow(0 0 60px rgba(255,167,38,0.4))',
+                filter: 'drop-shadow(0 0 40px rgba(255,215,0,0.7)) drop-shadow(0 0 60px rgba(236,183,32,0.5))',
                 textShadow: `
-                  0 0 80px rgba(255,107,53,0.5),
-                  0 0 100px rgba(255,167,38,0.3),
+                  0 0 80px rgba(255,215,0,0.6),
+                  0 0 100px rgba(236,183,32,0.4),
                   0 3px 15px rgba(0, 0, 0, 0.1)
                 `,
-                WebkitTextStroke: '1px rgba(255,107,53,0.15)',
+                WebkitTextStroke: '1px rgba(255,215,0,0.15)',
               }}
             >
               Healing Hands
@@ -123,7 +123,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0 }}
-            className="text-xl md:text-2xl text-[#2D2D2D] mb-8 font-medium drop-shadow-sm"
+            className="text-xl md:text-2xl text-[#1a1a1a] mb-8 font-medium drop-shadow-sm"
           >
             Need Medical Assistance?
           </motion.p>
@@ -134,7 +134,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           >
-            {/* 3D TEAL Button - Book Appointment with ALTERNATING GLOW */}
+            {/* 3D EMERALD GREEN Button - Book Appointment with ALTERNATING GLOW */}
             <motion.button
               onClick={() => setIsLedgerOpen(true)}
               animate={{
@@ -153,13 +153,13 @@ export default function Hero() {
               }}
               className="group relative px-10 py-5 rounded-full text-lg font-bold text-white overflow-hidden transform active:scale-95 transition-transform duration-300 flex items-center gap-3"
               style={{
-                background: 'linear-gradient(145deg, #00CED1 0%, #008B8B 100%)',
+                background: 'linear-gradient(145deg, #008A3A 0%, #14532D 100%)',
                 boxShadow: `
-                  0 8px 16px rgba(0, 206, 209, 0.6),
-                  0 4px 8px rgba(0, 206, 209, 0.5),
+                  0 8px 16px rgba(0, 138, 58, 0.6),
+                  0 4px 8px rgba(0, 138, 58, 0.5),
                   inset 0 -2px 8px rgba(0, 0, 0, 0.2),
                   inset 0 2px 4px rgba(255, 255, 255, 0.3),
-                  0 0 40px rgba(0, 206, 209, 0.6)
+                  0 0 40px rgba(0, 138, 58, 0.6)
                 `,
               }}
             >
