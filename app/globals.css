@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Kalpavruksha-Inspired Medical Theme - Fresh, Natural, Premium */
-  --emerald-green: #008A3A;
-  --deep-green: #14532D;
-  --golden-yellow: #FFD700;
-  --warm-gold: #ECB720;
-  --earthy-brown: #8B5E3C;
+  /* Modern Medical Theme - White, Vibrant Green, Gold */
+  --primary-green: #00ff88;
+  --emerald-green: #00d66f;
+  --teal-green: #00ffaa;
+  --dark-green: #00a854;
+  --accent-gold: #ffd700;
+  --light-gold: #ffed4e;
   --background: #FFFFFF;
   --foreground: #1a1a1a;
   --text-secondary: #4A5568;
   --border: #E5E7EB;
-  --light-green: #F0FDF4;
+  --light-bg: #e6fff5;
+  --hover-green: #00bf66;
 }
 
 @theme inline {
@@ -22,10 +24,10 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #FFFFFF 0%, #F0FDF4 50%, #FFFFFF 100%);
+  background: #FFFFFF;
   background-attachment: fixed;
-  color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #333333;
+  font-family: 'Roboto', 'Open Sans', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   min-height: 100vh;
   /* Hide default cursor - custom blood cursor component handles display */
   cursor: none !important;
@@ -47,10 +49,10 @@ input[type="text"], input[type="email"], input[type="tel"], textarea {
 
 /* Frosted glass effect utility */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(128, 0, 0, 0.2);
 }
 
 /* Mobile optimizations */
@@ -101,4 +103,150 @@ html {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* Vibrant Green Custom Classes */
+.text-vibrant-green {
+  color: #00ff88 !important;
+}
+
+.text-vibrant-emerald {
+  color: #00d66f !important;
+}
+
+.text-vibrant-teal {
+  color: #00ffaa !important;
+}
+
+.text-vibrant-dark {
+  color: #00a854 !important;
+}
+
+.bg-vibrant-green {
+  background-color: #00ff88 !important;
+}
+
+.bg-vibrant-emerald {
+  background-color: #00d66f !important;
+}
+
+.bg-vibrant-teal {
+  background-color: #00ffaa !important;
+}
+
+.border-vibrant-green {
+  border-color: #00ff88 !important;
+}
+
+.border-vibrant-emerald {
+  border-color: #00d66f !important;
+}
+
+.hover\:border-vibrant-green:hover {
+  border-color: #00ff88 !important;
+}
+
+.vibrant-gradient {
+  background: linear-gradient(145deg, #00ff88 0%, #00ffaa 100%) !important;
+}
+
+.vibrant-gradient-reverse {
+  background: linear-gradient(145deg, #00ffaa 0%, #00ff88 100%) !important;
+}
+
+.vibrant-text-gradient {
+  background: linear-gradient(145deg, #00d66f 0%, #00ffaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vibrant-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 170, 0.3) !important;
+}
+
+.vibrant-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.7), 0 0 60px rgba(0, 255, 170, 0.5) !important;
+}
+
+.bg-vibrant-light {
+  background-color: #e6fff5 !important;
+}
+
+/* Elegant Light Sweep Animation for Hospital Name */
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+/* Premium shimmer flow animation */
+@keyframes shimmerFlow {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+/* Gradient animation */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease infinite;
+}
+
+/* Professional shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.light-sweep {
+  animation: lightSweep 3s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #23408e 0%,
+    #23408e 40%,
+    #ffffff 50%,
+    #23408e 60%,
+    #23408e 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
 }

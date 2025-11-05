@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, MapPin, Heart, Activity } from 'lucide-react';
+import { ArrowRight, Phone, Calendar } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import BookingLedger from './BookingLedger';
 
@@ -14,202 +13,178 @@ export default function Hero() {
     <>
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
       <section
-      id="home"
-      className="min-h-screen flex items-center justify-center pt-32 relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-50"
-    >
-      {/* Enhanced lighting with balanced glow effects */}
-      <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-gradient-to-br from-green-400/15 to-emerald-500/12 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-gradient-to-br from-yellow-400/12 to-amber-500/10 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-green-300/10 to-emerald-400/8 rounded-full blur-3xl z-0" />
-      
-      {/* Additional accent lights */}
-      <div className="absolute top-1/4 right-1/4 w-[200px] h-[200px] bg-yellow-400/10 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
-      <div className="absolute bottom-1/4 left-1/4 w-[200px] h-[200px] bg-green-400/8 rounded-full blur-2xl z-0 animate-pulse" style={{ animationDuration: '7s' }} />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center max-w-5xl mx-auto"
-        >
-          {/* Logo with Original AR Hospital Logo */}
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-            className="mb-8 flex justify-center"
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28"
+      >
+        {/* Video Background Container */}
+        <div className="absolute inset-0 w-full h-full">
+          {/* Hospital Video Background */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
           >
-            <div className="w-32 h-32 bg-white backdrop-blur-xl rounded-3xl flex items-center justify-center shadow-2xl border-2 border-[#008A3A]/40 relative overflow-hidden group hover:scale-110 transition-transform duration-300 p-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#008A3A]/20 to-[#FFD700]/10 group-hover:from-[#008A3A]/35 transition-all duration-300" />
-              <Image
-                src="/A-R-Hospital-logobg-300x300.png"
-                alt="AR Hospital Logo"
-                width={120}
-                height={120}
-                className="object-contain relative z-10"
-                loading="eager"
-                priority
-              />
-            </div>
-          </motion.div>
+            <source src="/Video_Generation_Request_Denied.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Vibrant Light Overlay - Bright and Energetic */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/40 via-blue-300/35 to-teal-400/40" />
+        </div>
 
-          {/* Main Title with professional styling */}
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.8, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ 
-              delay: 0.4,
-              type: "spring",
-              stiffness: 100,
-              damping: 15
-            }}
-            className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 relative"
-            style={{ 
-              fontFamily: "'Arial Black', 'Arial Bold', Gadget, sans-serif",
-              letterSpacing: '-0.03em',
-              fontWeight: '900',
-            }}
-          >
-            <span 
-              className="bg-gradient-to-r from-[#008A3A] via-[#10b981] to-[#065f46] bg-clip-text text-transparent"
-              style={{
-                filter: 'drop-shadow(0 0 50px rgba(0,138,58,0.8)) drop-shadow(0 0 80px rgba(16,185,129,0.6))',
-                textShadow: `
-                  0 0 100px rgba(0,138,58,0.8),
-                  0 0 150px rgba(16,185,129,0.5),
-                  0 4px 20px rgba(0, 0, 0, 0.2)
-                `,
-                WebkitTextStroke: '2px rgba(0,138,58,0.3)',
-              }}
-            >
-              AR Hospital
-            </span>
-          </motion.h1>
+        {/* Lighter overlay for vibrancy */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-blue-50/30 to-cyan-100/25" />
 
-          {/* Tagline with elegant styling */}
-          <motion.p
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ 
-              delay: 0.7,
-              type: "spring",
-              stiffness: 80
-            }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 relative"
-            style={{ 
-              fontFamily: "'Times New Roman', Times, serif",
-              fontStyle: 'italic',
-              letterSpacing: '0.01em',
-              fontWeight: '700',
-            }}
-          >
-            <span
-              className="bg-gradient-to-r from-[#FFD700] via-[#F59E0B] to-[#D97706] bg-clip-text text-transparent"
-              style={{
-                filter: 'drop-shadow(0 0 50px rgba(255,215,0,0.9)) drop-shadow(0 0 80px rgba(245,158,11,0.7))',
-                textShadow: `
-                  0 0 100px rgba(255,215,0,0.9),
-                  0 0 140px rgba(245,158,11,0.6),
-                  0 4px 20px rgba(0, 0, 0, 0.15)
-                `,
-                WebkitTextStroke: '1.5px rgba(255,215,0,0.2)',
-              }}
-            >
-              Healing Hands
-            </span>
-          </motion.p>
-
-          {/* CTA Question */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
-            className="text-xl md:text-2xl text-[#065f46] mb-8 font-semibold drop-shadow-sm"
-            style={{
-              fontFamily: "'Arial', sans-serif",
-              fontWeight: '600',
-            }}
-          >
-            Need Medical Assistance?
-          </motion.p>
-
+        {/* Content */}
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+            transition={{ duration: 1 }}
+            className="max-w-4xl mx-auto"
           >
-            {/* 3D EMERALD GREEN Button - Book Appointment with ALTERNATING GLOW */}
-            <motion.button
-              onClick={() => setIsLedgerOpen(true)}
-              animate={{
-                opacity: [1, 0.4, 1],
-                scale: [1, 0.98, 1]
+            {/* Logo - Bigger, No Background */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                type: 'spring', 
+                stiffness: 200, 
+                delay: 0.2 
               }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                opacity: 1,
-                transition: { duration: 0.2 }
-              }}
-              className="group relative px-10 py-5 rounded-full text-lg font-bold text-white overflow-hidden transform active:scale-95 transition-transform duration-300 flex items-center gap-3"
-              style={{
-                background: 'linear-gradient(145deg, #008A3A 0%, #14532D 100%)',
-                boxShadow: `
-                  0 8px 16px rgba(0, 138, 58, 0.6),
-                  0 4px 8px rgba(0, 138, 58, 0.5),
-                  inset 0 -2px 8px rgba(0, 0, 0, 0.2),
-                  inset 0 2px 4px rgba(255, 255, 255, 0.3),
-                  0 0 40px rgba(0, 138, 58, 0.6)
-                `,
-              }}
+              className="mb-8 md:mb-10 flex justify-center"
             >
-              <span className="relative z-10 drop-shadow-lg">Book Appointment</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10 drop-shadow-lg" />
-            </motion.button>
+              <Image
+                src="/A-R-Hospital-logobg-300x300.png"
+                alt="AR Hospital Logo"
+                width={200}
+                height={200}
+                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 768px) 180px, 200px"
+                loading="eager"
+                priority
+              />
+            </motion.div>
 
-            {/* 3D RED Button - Emergency with OPPOSITE BLINKING */}
-            <motion.a
-              href="tel:08213501645"
-              animate={{
-                opacity: [0.4, 1, 0.4],
-                scale: [0.98, 1, 0.98]
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                opacity: 1,
-                transition: { duration: 0.2 }
-              }}
-              className="group relative px-10 py-5 rounded-full text-lg font-bold text-white overflow-hidden transform active:scale-95 transition-transform duration-300 flex items-center gap-3"
+            {/* Hospital Name - Bold and Visible */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 px-4 leading-tight relative"
               style={{
-                background: 'linear-gradient(145deg, #ef4444 0%, #dc2626 100%)',
-                boxShadow: `
-                  0 8px 16px rgba(239, 68, 68, 0.6),
-                  0 4px 8px rgba(239, 68, 68, 0.5),
-                  inset 0 -2px 8px rgba(0, 0, 0, 0.2),
-                  inset 0 2px 4px rgba(255, 255, 255, 0.3),
-                  0 0 50px rgba(239, 68, 68, 0.7)
-                `,
+                fontFamily: "'Roboto', 'Montserrat', 'Open Sans', sans-serif",
+                fontWeight: 900,
+                color: '#ffffff',
+                textShadow: '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(14, 165, 233, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(37, 99, 235, 0.5)',
               }}
             >
-              <Phone className="w-5 h-5 drop-shadow-lg" />
-              <span className="relative z-10 drop-shadow-lg">Emergency: 0821-3501645</span>
-            </motion.a>
+              <span className="relative inline-block">
+                AR Hospital
+                {/* Glowing edge effect */}
+                <span 
+                  className="absolute inset-0 blur-sm"
+                  style={{
+                    color: '#3b82f6',
+                    textShadow: '0 0 30px #3b82f6, 0 0 60px #0ea5e9',
+                    zIndex: -1,
+                  }}
+                >
+                  AR Hospital
+                </span>
+              </span>
+            </motion.h1>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 px-4"
+              style={{ 
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                fontStyle: 'italic',
+                color: '#ffd700',
+                textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.5)',
+              }}
+            >
+              Healing Hands
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-stretch sm:items-center px-4 max-w-3xl mx-auto"
+            >
+              {/* Book Appointment Button - Blue */}
+              <motion.button
+                onClick={() => setIsLedgerOpen(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold text-white overflow-hidden transition-all duration-300 flex items-center justify-center gap-3 min-h-[56px]"
+                style={{
+                  background: 'linear-gradient(145deg, #3b82f6 0%, #06b6d4 100%)',
+                  boxShadow: '0 8px 20px rgba(59, 130, 246, 0.6), 0 4px 12px rgba(6, 182, 212, 0.5)',
+                }}
+              >
+                <Calendar className="w-5 h-5 md:w-6 md:h-6" />
+                <span className="relative z-10 drop-shadow-lg">Book Appointment</span>
+                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+
+              {/* Emergency Call Button - Red with pulse */}
+              <motion.a
+                href="tel:08213501645"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{
+                  boxShadow: [
+                    '0 8px 16px rgba(239, 68, 68, 0.4)',
+                    '0 8px 24px rgba(239, 68, 68, 0.6)',
+                    '0 8px 16px rgba(239, 68, 68, 0.4)',
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold text-white overflow-hidden shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center justify-center gap-3 min-h-[56px]"
+                style={{
+                  background: 'linear-gradient(145deg, #ef4444 0%, #dc2626 100%)',
+                }}
+              >
+                <Phone className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
+                <span className="relative z-10">Emergency: 0821-3501645</span>
+              </motion.a>
+            </motion.div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              className="mt-16 md:mt-20"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-6 h-10 border-2 border-white/60 rounded-full flex items-start justify-center p-2"
+              >
+                <div className="w-1 h-2 bg-white/80 rounded-full" />
+              </motion.div>
+            </motion.div>
           </motion.div>
+        </div>
 
-        </motion.div>
-      </div>
-    </section>
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      </section>
     </>
   );
 }
+

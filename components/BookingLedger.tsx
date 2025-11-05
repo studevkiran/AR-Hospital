@@ -92,11 +92,11 @@ _Sent via AR Hospital Website_`;
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60]"
           />
 
           {/* 3D Book Container */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 pointer-events-none overflow-y-auto">
             <motion.div
               initial={{ 
                 scale: 0.3, 
@@ -118,31 +118,31 @@ _Sent via AR Hospital Website_`;
                 stiffness: 100,
                 damping: 20,
               }}
-              className="pointer-events-auto relative"
+              className="pointer-events-auto relative w-full max-w-4xl my-auto"
               style={{ perspective: '2000px' }}
             >
               {/* Book */}
-              <div className="relative w-full max-w-4xl" style={{ transformStyle: 'preserve-3d' }}>
+              <div className="relative w-full" style={{ transformStyle: 'preserve-3d' }}>
                 {/* Book Cover Shadow */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-emerald-900/20 to-black/40 blur-xl rounded-2xl" />
+                <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-emerald-900/20 to-black/40 blur-xl rounded-2xl" />
                 
                 {/* Open Book */}
-                <div className="relative bg-gradient-to-br from-amber-100 to-yellow-50 rounded-2xl shadow-2xl border-8 border-amber-800/60 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-amber-100 to-yellow-50 rounded-lg sm:rounded-2xl shadow-2xl border-4 sm:border-8 border-amber-800/60 overflow-hidden max-h-[90vh]">
                   {/* Book Spine Effect */}
-                  <div className="absolute left-1/2 top-0 bottom-0 w-8 bg-gradient-to-r from-amber-800/40 via-amber-900/60 to-amber-800/40 transform -translate-x-1/2 shadow-inner" />
+                  <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-8 bg-gradient-to-r from-amber-800/40 via-amber-900/60 to-amber-800/40 transform -translate-x-1/2 shadow-inner" />
                   
                   {/* Close Button */}
                   <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-20 p-2 bg-red-500/90 hover:bg-red-600 text-white rounded-full shadow-lg transition-all hover:scale-110"
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 p-2 sm:p-3 bg-red-500/90 hover:bg-red-600 text-white rounded-full shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px]"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
 
                   {/* Book Content */}
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-0 max-h-[85vh] overflow-y-auto">
                     {/* Left Page - Title & Info */}
-                    <div className="p-12 relative bg-gradient-to-br from-amber-50 to-yellow-100/50">
+                    <div className="p-6 sm:p-8 md:p-12 relative bg-gradient-to-br from-amber-50 to-yellow-100/50">
                       {/* Vintage Paper Texture */}
                       <div className="absolute inset-0 opacity-10" style={{
                         backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 92, 46, 0.1) 2px, rgba(139, 92, 46, 0.1) 4px)`
@@ -155,10 +155,10 @@ _Sent via AR Hospital Website_`;
                           transition={{ delay: 0.3 }}
                           className="mb-8"
                         >
-                          <h2 className="text-5xl font-serif font-bold text-amber-900 mb-2 drop-shadow-sm">
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-amber-900 mb-2 drop-shadow-sm">
                             Appointment
                           </h2>
-                          <h3 className="text-3xl font-serif italic text-amber-800 mb-4">
+                          <h3 className="text-2xl sm:text-2xl md:text-3xl font-serif italic text-amber-800 mb-4">
                             Ledger
                           </h3>
                           <div className="h-1 w-24 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded" />
@@ -170,7 +170,7 @@ _Sent via AR Hospital Website_`;
                           transition={{ delay: 0.5 }}
                           className="space-y-4 text-amber-900/80"
                         >
-                          <p className="font-serif leading-relaxed text-lg">
+                          <p className="font-serif leading-relaxed text-base sm:text-lg">
                             Welcome to AR Hospital's appointment booking system.
                           </p>
                           <p className="font-serif leading-relaxed">
@@ -194,12 +194,34 @@ _Sent via AR Hospital Website_`;
                               9 AM - 5 PM (Mon-Sat)
                             </p>
                           </div>
+
+                          {/* Mobile Scroll Hint */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.7, repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+                            className="md:hidden mt-8 p-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shadow-lg text-center"
+                          >
+                            <p className="text-white font-bold text-sm mb-2">
+                              📝 Scroll Down to Fill Form
+                            </p>
+                            <div className="flex justify-center">
+                              <motion.div
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                              >
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                </svg>
+                              </motion.div>
+                            </div>
+                          </motion.div>
                         </motion.div>
                       </div>
                     </div>
 
                     {/* Right Page - Form */}
-                    <div className="p-12 relative bg-gradient-to-br from-yellow-50 to-amber-100/50">
+                    <div className="p-6 sm:p-8 md:p-12 relative bg-gradient-to-br from-yellow-50 to-amber-100/50">
                       {/* Vintage Paper Lines */}
                       <div className="absolute inset-0 opacity-10" style={{
                         backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 92, 46, 0.1) 2px, rgba(139, 92, 46, 0.1) 4px)`
@@ -223,7 +245,7 @@ _Sent via AR Hospital Website_`;
                             required
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900"
+                            className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
                             placeholder="Enter your full name"
                           />
                         </div>
@@ -239,7 +261,7 @@ _Sent via AR Hospital Website_`;
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900"
+                            className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
                             placeholder="your.email@example.com"
                           />
                         </div>
@@ -254,7 +276,7 @@ _Sent via AR Hospital Website_`;
                             required
                             value={formData.department}
                             onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900"
+                            className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
                           >
                             <option value="">Select a department</option>
                             {departments.map((dept) => (
@@ -277,7 +299,7 @@ _Sent via AR Hospital Website_`;
                             value={formData.date}
                             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                             min={new Date().toISOString().split('T')[0]}
-                            className="w-full px-4 py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900"
+                            className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
                           />
                         </div>
 
@@ -286,7 +308,7 @@ _Sent via AR Hospital Website_`;
                           type="submit"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-lg"
+                          className="w-full py-3 sm:py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-base sm:text-lg min-h-[44px]"
                         >
                           <Send className="w-5 h-5" />
                           Send to WhatsApp

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto, Open_Sans } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,20 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  weight: ['400', '500', '700', '900'],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: 'swap',
+});
+
+const openSans = Open_Sans({
+  weight: ['400', '600', '700', '800'],
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+  display: 'swap',
 });
 
 export const viewport: Viewport = {
@@ -40,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${openSans.variable} antialiased`}
       >
         {children}
       </body>

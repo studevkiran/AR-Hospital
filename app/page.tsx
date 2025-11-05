@@ -11,7 +11,7 @@ import MobileAmbulance from '@/components/MobileAmbulance'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50 relative overflow-hidden">
+    <main className="min-h-screen bg-white relative overflow-hidden">
       <AnimatedPlusBackground />
       <BloodCursor />
       <Navbar />

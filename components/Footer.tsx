@@ -13,15 +13,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-green-50 to-white relative overflow-hidden border-t border-green-200">
+    <footer className="bg-white relative overflow-hidden border-t border-emerald-200">
       {/* Background Effects */}
-      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-3xl z-0" />
-      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-3xl z-0" />
+      <div className="absolute top-0 left-1/4 w-48 h-48 md:w-[300px] md:h-[300px] bg-emerald-500/5 rounded-full blur-3xl z-0" />
+      <div className="absolute bottom-0 right-1/4 w-48 h-48 md:w-[300px] md:h-[300px] bg-teal-500/5 rounded-full blur-3xl z-0" />
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
         {/* Main Content - Centered with better spacing */}
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-12">
             {/* About Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -29,22 +29,23 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="relative w-12 h-12">
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <div className="relative w-10 h-10 md:w-12 md:h-12">
                   <Image
                     src="/A-R-Hospital-logobg-300x300.png"
                     alt="AR Hospital Logo"
                     fill
+                    sizes="(max-width: 768px) 40px, 48px"
                     className="object-contain"
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-[#008A3A]">AR Hospital</h3>
-                  <p className="text-amber-600 text-sm">Healing Hands</p>
+                  <h3 className="text-xl md:text-2xl font-bold" style={{ color: '#00d66f' }}>AR Hospital</h3>
+                  <p className="text-xs md:text-sm" style={{ color: '#00ff88' }}>Healing Hands</p>
                 </div>
               </div>
               
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6 leading-relaxed">
                 5+ years of dedicated service providing world-class healthcare with compassion, 
                 innovation, and integrity at the core of everything we do.
               </p>
@@ -56,21 +57,21 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-right"
+              className="md:text-right"
             >
-              <h4 className="text-xl font-bold text-[#008A3A] mb-6 flex items-center justify-end gap-2">
-                <span className="text-amber-600 text-2xl">+</span>
+              <h4 className="text-lg md:text-xl font-bold text-emerald-700 mb-4 md:mb-6 flex items-center md:justify-end gap-2">
+                <span className="text-emerald-600 text-xl md:text-2xl">+</span>
                 Quick Links
               </h4>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                 {quickLinks.map((link, index) => (
-                  <li key={index} className="flex justify-end">
+                  <li key={index} className="flex md:justify-end">
                     <a
                       href={link.href}
-                      className="text-gray-700 hover:text-[#008A3A] transition-colors flex items-center gap-2 group"
+                      className="text-sm md:text-base text-gray-700 hover:text-emerald-700 transition-colors flex items-center gap-2 group min-h-[44px] md:min-h-0"
                     >
                       {link.name}
-                      <span className="w-1 h-1 rounded-full bg-[#008A3A] group-hover:w-2 transition-all" />
+                      <span className="w-1 h-1 rounded-full bg-emerald-600 group-hover:w-2 transition-all" />
                     </a>
                   </li>
                 ))}
@@ -80,19 +81,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-green-200 pt-8">
+        <div className="border-t border-emerald-200 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 text-sm text-center md:text-left">
+            <p className="text-gray-600 text-xs md:text-sm text-center md:text-left">
               © {new Date().getFullYear()} AR Hospital, Mysuru. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-600 hover:text-[#008A3A] transition-colors">
+            <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm flex-wrap justify-center">
+              <a href="#" className="text-gray-600 hover:text-emerald-700 transition-colors min-h-[44px] md:min-h-0 flex items-center">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-600 hover:text-[#008A3A] transition-colors">
+              <a href="#" className="text-gray-600 hover:text-emerald-700 transition-colors min-h-[44px] md:min-h-0 flex items-center">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-600 hover:text-[#008A3A] transition-colors">
+              <a href="#" className="text-gray-600 hover:text-emerald-700 transition-colors min-h-[44px] md:min-h-0 flex items-center">
                 Sitemap
               </a>
             </div>
