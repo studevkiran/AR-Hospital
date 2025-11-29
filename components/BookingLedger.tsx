@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Calendar, User, Mail, Stethoscope } from 'lucide-react';
 
@@ -31,7 +31,7 @@ export default function BookingLedger({ isOpen, onClose }: BookingLedgerProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Create WhatsApp message with clean formatting
     const message = `━━━━━━━━━━━━━━━━━━━━━━━━━━━
     *AR HOSPITAL*
@@ -73,13 +73,30 @@ _Sent via AR Hospital Website_`;
     // Encode message for WhatsApp
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919008994827?text=${encodedMessage}`;
-    
+
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');
-    
+
     // Reset form and close
     setFormData({ name: '', email: '', department: '', date: '' });
     onClose();
+  };
+
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const scrollToForm = () => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Get today's date in YYYY-MM-DD format for min attribute
+  const getTodayString = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   return (
@@ -98,18 +115,18 @@ _Sent via AR Hospital Website_`;
           {/* 3D Book Container */}
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 pointer-events-none overflow-y-auto">
             <motion.div
-              initial={{ 
-                scale: 0.3, 
+              initial={{
+                scale: 0.3,
                 rotateY: -90,
                 opacity: 0,
               }}
-              animate={{ 
-                scale: 1, 
+              animate={{
+                scale: 1,
                 rotateY: 0,
                 opacity: 1,
               }}
-              exit={{ 
-                scale: 0.3, 
+              exit={{
+                scale: 0.3,
                 rotateY: 90,
                 opacity: 0,
               }}
@@ -125,12 +142,12 @@ _Sent via AR Hospital Website_`;
               <div className="relative w-full" style={{ transformStyle: 'preserve-3d' }}>
                 {/* Book Cover Shadow */}
                 <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-emerald-900/20 to-black/40 blur-xl rounded-2xl" />
-                
+
                 {/* Open Book */}
                 <div className="relative bg-gradient-to-br from-amber-100 to-yellow-50 rounded-lg sm:rounded-2xl shadow-2xl border-4 sm:border-8 border-amber-800/60 overflow-hidden max-h-[90vh]">
                   {/* Book Spine Effect */}
                   <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-8 bg-gradient-to-r from-amber-800/40 via-amber-900/60 to-amber-800/40 transform -translate-x-1/2 shadow-inner" />
-                  
+
                   {/* Close Button */}
                   <button
                     onClick={onClose}
@@ -147,7 +164,7 @@ _Sent via AR Hospital Website_`;
                       <div className="absolute inset-0 opacity-10" style={{
                         backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 92, 46, 0.1) 2px, rgba(139, 92, 46, 0.1) 4px)`
                       }} />
-                      
+
                       <div className="relative">
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
@@ -176,7 +193,7 @@ _Sent via AR Hospital Website_`;
                           <p className="font-serif leading-relaxed">
                             Please fill in your details on the right page, and we'll confirm your appointment via WhatsApp.
                           </p>
-                          
+
                           <div className="mt-8 p-4 bg-emerald-50 border-l-4 border-emerald-600 rounded">
                             <p className="text-sm font-semibold text-emerald-900 mb-2">
                               📞 Emergency Contact
@@ -195,38 +212,35 @@ _Sent via AR Hospital Website_`;
                             </p>
                           </div>
 
-                          {/* Mobile Scroll Hint */}
-                          <motion.div
+                          {/* Mobile Scroll Button */}
+                          <motion.button
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.7, repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
-                            className="md:hidden mt-8 p-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shadow-lg text-center"
+                            transition={{ delay: 0.7 }}
+                            onClick={scrollToForm}
+                            className="md:hidden mt-8 w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg shadow-lg flex items-center justify-center gap-2 font-bold active:scale-95 transition-transform"
                           >
-                            <p className="text-white font-bold text-sm mb-2">
-                              📝 Scroll Down to Fill Form
-                            </p>
-                            <div className="flex justify-center">
-                              <motion.div
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ repeat: Infinity, duration: 1.5 }}
-                              >
-                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                </svg>
-                              </motion.div>
-                            </div>
-                          </motion.div>
+                            <span>Book Now</span>
+                            <motion.div
+                              animate={{ y: [0, 4, 0] }}
+                              transition={{ repeat: Infinity, duration: 1.5 }}
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                              </svg>
+                            </motion.div>
+                          </motion.button>
                         </motion.div>
                       </div>
                     </div>
 
                     {/* Right Page - Form */}
-                    <div className="p-6 sm:p-8 md:p-12 relative bg-gradient-to-br from-yellow-50 to-amber-100/50">
+                    <div ref={formRef} className="p-6 sm:p-8 md:p-12 relative bg-gradient-to-br from-yellow-50 to-amber-100/50">
                       {/* Vintage Paper Lines */}
                       <div className="absolute inset-0 opacity-10" style={{
                         backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 92, 46, 0.1) 2px, rgba(139, 92, 46, 0.1) 4px)`
                       }} />
-                      
+
                       <motion.form
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -298,7 +312,7 @@ _Sent via AR Hospital Website_`;
                             required
                             value={formData.date}
                             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                            min={new Date().toISOString().split('T')[0]}
+                            min={getTodayString()}
                             className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
                           />
                         </div>

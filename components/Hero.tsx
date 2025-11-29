@@ -58,8 +58,8 @@ export default function Hero() {
                 alt="AR Hospital Logo"
                 width={200}
                 height={200}
-                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 w-32 h-32 md:w-[200px] md:h-[200px]"
-                sizes="(max-width: 768px) 128px, 200px"
+                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 w-40 h-40 md:w-[200px] md:h-[200px]"
+                sizes="(max-width: 768px) 160px, 200px"
                 loading="eager"
                 priority
               />
@@ -70,7 +70,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-7xl lg:text-8xl font-black mb-2 md:mb-6 px-4 leading-tight relative"
+              className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 md:mb-6 px-4 leading-tight relative"
               style={{
                 fontFamily: "'Roboto', 'Montserrat', 'Open Sans', sans-serif",
                 fontWeight: 900,
@@ -99,7 +99,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 px-4"
+              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 px-4"
               style={{
                 fontFamily: "'Georgia', 'Times New Roman', serif",
                 fontStyle: 'italic',
