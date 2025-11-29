@@ -211,8 +211,8 @@ export default function Navbar() {
               className="w-[120px] h-20 border-r border-white/10 flex items-center justify-center relative group transition-all duration-300 hover:bg-white/10"
             >
               <span className={`font-semibold text-base transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${activeSection === link.section
-                  ? 'text-[#FFD700] text-lg scale-110'
-                  : 'text-white group-hover:text-[#3b82f6] group-hover:scale-105'
+                ? 'text-[#FFD700] text-lg scale-110'
+                : 'text-white group-hover:text-[#3b82f6] group-hover:scale-105'
                 }`}>
                 {link.name}
               </span>
@@ -336,15 +336,6 @@ export default function Navbar() {
                   <h1 className="text-lg font-bold text-white whitespace-nowrap drop-shadow-lg">AR Hospital</h1>
                   <p className="text-[#FFD700] text-xs whitespace-nowrap drop-shadow-md">Healing Hands</p>
                 </div>
-                {/* Mobile Ambulance Icon */}
-                <div className="relative w-12 h-8 ml-1">
-                  <Image
-                    src="/rbg removed ambulance.png"
-                    alt="Ambulance"
-                    fill
-                    className="object-contain drop-shadow-lg brightness-110"
-                  />
-                </div>
               </div>
 
               {/* Mobile Menu Toggle Button */}
@@ -378,8 +369,8 @@ export default function Navbar() {
                       setIsMobileMenuOpen(false);
                     }}
                     className={`py-3 px-4 rounded-lg text-center font-semibold transition-all ${activeSection === link.section
-                        ? 'bg-white/20 text-[#FFD700] border border-[#FFD700]/50 shadow-lg'
-                        : 'text-white hover:bg-white/10 hover:text-[#3b82f6] border border-white/10'
+                      ? 'bg-white/20 text-[#FFD700] border border-[#FFD700]/50 shadow-lg'
+                      : 'text-white hover:bg-white/10 hover:text-[#3b82f6] border border-white/10'
                       }`}
                   >
                     {link.name}
