@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function AnimatedPlusBackground() {
-  const [plusSymbols, setPlusSymbols] = useState<Array<{ 
-    id: number; 
-    left: string; 
-    delay: number; 
-    duration: number; 
+  const [plusSymbols, setPlusSymbols] = useState<Array<{
+    id: number;
+    left: string;
+    delay: number;
+    duration: number;
     size: number;
     rotation: number;
   }>>([]);
@@ -27,12 +27,12 @@ export default function AnimatedPlusBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-30">
       {plusSymbols.map((symbol) => (
         <motion.div
           key={symbol.id}
-          initial={{ 
-            y: '110vh', 
+          initial={{
+            y: '110vh',
             opacity: 0,
             scale: 0.5,
             rotate: symbol.rotation
