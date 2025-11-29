@@ -307,14 +307,18 @@ _Sent via AR Hospital Website_`;
                             <Calendar className="w-5 h-5 text-emerald-600" />
                             Preferred Date
                           </label>
-                          <input
-                            type="date"
-                            required
-                            value={formData.date}
-                            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                            min={getTodayString()}
-                            className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px]"
-                          />
+                          <div className="relative">
+                            <input
+                              type="date"
+                              required
+                              value={formData.date}
+                              onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                              min={getTodayString()}
+                              className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white/80 border-2 border-amber-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all font-serif text-amber-900 text-base min-h-[44px] appearance-none"
+                              style={{ WebkitAppearance: 'none' }}
+                            />
+                            <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-700 pointer-events-none" />
+                          </div>
                         </div>
 
                         {/* Submit Button */}
