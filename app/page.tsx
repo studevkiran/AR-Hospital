@@ -7,7 +7,6 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import AnimatedPlusBackground from '@/components/AnimatedPlusBackground'
 import BloodCursor from '@/components/BloodCursor'
-import MobileAmbulance from '@/components/MobileAmbulance'
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <AnimatedPlusBackground />
       <BloodCursor />
       <Navbar />
-      <MobileAmbulance />
       <Hero />
       <About />
       <Services />

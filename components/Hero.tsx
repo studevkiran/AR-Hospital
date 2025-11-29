@@ -30,12 +30,9 @@ export default function Hero() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Vibrant Light Overlay - Bright and Energetic */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/40 via-blue-300/35 to-teal-400/40" />
+          {/* Subtle dark overlay for text readability - very light */}
+          <div className="absolute inset-0 bg-black/10" />
         </div>
-
-        {/* Lighter overlay for vibrancy */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-blue-50/30 to-cyan-100/25" />
 
         {/* Content */}
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">

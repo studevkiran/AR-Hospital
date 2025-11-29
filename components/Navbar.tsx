@@ -24,7 +24,7 @@ export default function Navbar() {
       const seconds = now.getSeconds().toString().padStart(2, '0');
       setCurrentTime(`${hours}:${minutes}:${seconds}`);
     };
-    
+
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
@@ -45,7 +45,7 @@ export default function Navbar() {
 
   const getAmbulancePosition = (section: NavSection) => {
     let targetRef;
-    
+
     if (section === 'default') {
       targetRef = defaultRef;
     } else {
@@ -61,7 +61,7 @@ export default function Navbar() {
         return targetRect.left - containerRect.left;
       }
     }
-    
+
     return 0;
   };
 
@@ -93,7 +93,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      
+
       const homeSection = document.getElementById('home');
       const aboutSection = document.getElementById('about');
       const servicesSection = document.getElementById('services');
@@ -144,7 +144,7 @@ export default function Navbar() {
   return (
     <>
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
-      
+
       {/* Emergency Beacon at Browser Top Edge - Reflection Effect */}
       <motion.div
         animate={ambulanceControls}
@@ -181,7 +181,7 @@ export default function Navbar() {
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-white/5 shadow-lg">
         <div className="hidden lg:flex items-center h-20 gap-0 relative">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex items-center gap-3 px-6 pr-6 border-r border-white/10 bg-black/30"
@@ -210,189 +210,196 @@ export default function Navbar() {
               onClick={() => handleNavClick(link.section, link.href)}
               className="w-[120px] h-20 border-r border-white/10 flex items-center justify-center relative group transition-all duration-300 hover:bg-white/10"
             >
-              <span className={`font-semibold text-base transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${
-                activeSection === link.section 
-                  ? 'text-[#FFD700] text-lg scale-110' 
+              <span className={`font-semibold text-base transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${activeSection === link.section
+                  ? 'text-[#FFD700] text-lg scale-110'
                   : 'text-white group-hover:text-[#3b82f6] group-hover:scale-105'
-              }`}>
+                }`}>
                 {link.name}
               </span>
             </button>
           ))}
 
-        {/* ECG Clock - Real Time Display */}
-        <div className="w-[180px] h-20 border-r border-white/10 flex items-center justify-center flex-shrink-0 relative overflow-hidden bg-black/30">
-          <div className="relative z-10 text-center">
-            <div className="text-[#60a5fa] text-sm font-mono font-bold tracking-wider drop-shadow-[0_0_16px_rgba(96,165,250,1)]">
-              {currentTime}
-            </div>
-            <div className="text-white text-xs mt-0.5 drop-shadow-md">Live Time</div>
-          </div>
-          
-          {/* Animated ECG Wave Background - More Visible & Realistic */}
-          <svg className="absolute inset-0 w-full h-full opacity-90" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            {/* Realistic ECG Pattern: P wave, QRS complex, T wave */}
-            <motion.path
-              d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
-              stroke="#34d399"
-              strokeWidth="3"
-              fill="none"
-              filter="url(#glow)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              animate={{ 
-                x: [-200, 0]
-              }}
-              transition={{ 
-                x: { duration: 2, repeat: Infinity, ease: "linear" }
-              }}
-            />
-            {/* Second wave for continuous effect */}
-            <motion.path
-              d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
-              stroke="#34d399"
-              strokeWidth="3"
-              fill="none"
-              filter="url(#glow)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              animate={{ 
-                x: [0, 200]
-              }}
-              transition={{ 
-                x: { duration: 2, repeat: Infinity, ease: "linear" }
-              }}
-            />
-          </svg>
-          
-          {/* Pulsing Heartbeat Dot */}
-          <motion.div
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#fbbf24] rounded-full shadow-[0_0_12px_rgba(251,191,36,1)]"
-            animate={{
-              scale: [1, 1.8, 1],
-              opacity: [1, 0.4, 1]
-            }}
-            transition={{
-              duration: 0.8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </div>
-
-        {/* Book Appointment Button - Desktop */}
-        <div className="ml-auto px-6 flex-shrink-0">
-          <button
-            onClick={() => setIsLedgerOpen(true)}
-            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-medium shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all whitespace-nowrap inline-flex items-center gap-2"
-          >
-            <span>📱</span>
-            <span>Book Appointment</span>
-          </button>
-        </div>
-
-        {/* Ambulance Animation - Without Beacon (Beacon moved to top edge) */}
-        <motion.div
-          animate={ambulanceControls}
-          initial={{ x: initialX }}
-          className="absolute top-0 left-0 w-[120px] h-20 flex items-center justify-center pointer-events-none z-10"
-        >
-          <div className="relative w-28 h-20 flex items-center justify-center">
-            <Image
-              src="/rbg removed ambulance.png"
-              alt="Ambulance"
-              width={112}
-              height={80}
-              className="object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.7)] brightness-110"
-              priority
-            />
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className="lg:hidden bg-transparent border-b border-white/10">
-        <div className="container mx-auto px-4 py-4 bg-black/30">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10">
-                <Image
-                  src="/A-R-Hospital-logobg-300x300.png"
-                  alt="AR Hospital Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-lg drop-shadow-lg"
-                />
+          {/* ECG Clock - Real Time Display */}
+          <div className="w-[180px] h-20 border-r border-white/10 flex items-center justify-center flex-shrink-0 relative overflow-hidden bg-black/30">
+            <div className="relative z-10 text-center">
+              <div className="text-[#60a5fa] text-sm font-mono font-bold tracking-wider drop-shadow-[0_0_16px_rgba(96,165,250,1)]">
+                {currentTime}
               </div>
-              <div>
-                <h1 className="text-lg font-bold text-white whitespace-nowrap drop-shadow-lg">AR Hospital</h1>
-                <p className="text-[#FFD700] text-xs whitespace-nowrap drop-shadow-md">Healing Hands</p>
-              </div>
+              <div className="text-white text-xs mt-0.5 drop-shadow-md">Live Time</div>
             </div>
 
-            {/* Mobile Menu Toggle Button */}
+            {/* Animated ECG Wave Background - More Visible & Realistic */}
+            <svg className="absolute inset-0 w-full h-full opacity-90" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              {/* Realistic ECG Pattern: P wave, QRS complex, T wave */}
+              <motion.path
+                d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
+                stroke="#34d399"
+                strokeWidth="3"
+                fill="none"
+                filter="url(#glow)"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                animate={{
+                  x: [-200, 0]
+                }}
+                transition={{
+                  x: { duration: 2, repeat: Infinity, ease: "linear" }
+                }}
+              />
+              {/* Second wave for continuous effect */}
+              <motion.path
+                d="M0,40 L30,40 L32,38 L34,40 L36,40 L38,45 L40,15 L42,60 L44,40 L46,40 L50,42 L54,40 L200,40"
+                stroke="#34d399"
+                strokeWidth="3"
+                fill="none"
+                filter="url(#glow)"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                animate={{
+                  x: [0, 200]
+                }}
+                transition={{
+                  x: { duration: 2, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </svg>
+
+            {/* Pulsing Heartbeat Dot */}
+            <motion.div
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#fbbf24] rounded-full shadow-[0_0_12px_rgba(251,191,36,1)]"
+              animate={{
+                scale: [1, 1.8, 1],
+                opacity: [1, 0.4, 1]
+              }}
+              transition={{
+                duration: 0.8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+
+          {/* Book Appointment Button - Desktop */}
+          <div className="ml-auto px-6 flex-shrink-0">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-white hover:text-[#FFD700] transition-colors drop-shadow-lg"
-              aria-label="Toggle menu"
+              onClick={() => setIsLedgerOpen(true)}
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-medium shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all whitespace-nowrap inline-flex items-center gap-2"
             >
-              {isMobileMenuOpen ? (
-                <span className="text-2xl">✕</span>
-              ) : (
-                <span className="text-2xl">☰</span>
-              )}
+              <span>📱</span>
+              <span>Book Appointment</span>
             </button>
           </div>
-          
-          {/* Mobile Menu - Only show when open */}
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="mt-4 flex flex-col gap-2"
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.section}
-                  href={link.href}
-                  onClick={() => {
-                    setActiveSection(link.section);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`py-3 px-4 rounded-lg text-center font-semibold transition-all ${
-                    activeSection === link.section
-                      ? 'bg-white/20 text-[#FFD700] border border-[#FFD700]/50 shadow-lg'
-                      : 'text-white hover:bg-white/10 hover:text-[#3b82f6] border border-white/10'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
-              
-              {/* Mobile Book Appointment Button */}
-              <a
-                href="https://wa.me/919008994827"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 py-3 px-4 bg-gradient-to-r from-[#008A3A] to-[#14532D] text-white rounded-lg text-center font-medium shadow-lg hover:shadow-green-500/50 transition-all"
-              >
-                📱 Book Appointment
-              </a>
-            </motion.div>
-          )}
+
+          {/* Ambulance Animation - Without Beacon (Beacon moved to top edge) */}
+          <motion.div
+            animate={ambulanceControls}
+            initial={{ x: initialX }}
+            className="absolute top-0 left-0 w-[120px] h-20 flex items-center justify-center pointer-events-none z-10"
+          >
+            <div className="relative w-28 h-20 flex items-center justify-center">
+              <Image
+                src="/rbg removed ambulance.png"
+                alt="Ambulance"
+                width={112}
+                height={80}
+                className="object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.7)] brightness-110"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
-      </div>
-    </nav>
+
+        {/* Mobile Navigation */}
+        <div className="lg:hidden bg-transparent border-b border-white/10">
+          <div className="container mx-auto px-4 py-4 bg-black/30">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/A-R-Hospital-logobg-300x300.png"
+                    alt="AR Hospital Logo"
+                    width={40}
+                    height={40}
+                    className="rounded-lg drop-shadow-lg"
+                  />
+                </div>
+                <div>
+                  <h1 className="text-lg font-bold text-white whitespace-nowrap drop-shadow-lg">AR Hospital</h1>
+                  <p className="text-[#FFD700] text-xs whitespace-nowrap drop-shadow-md">Healing Hands</p>
+                </div>
+                {/* Mobile Ambulance Icon */}
+                <div className="relative w-12 h-8 ml-1">
+                  <Image
+                    src="/rbg removed ambulance.png"
+                    alt="Ambulance"
+                    fill
+                    className="object-contain drop-shadow-lg brightness-110"
+                  />
+                </div>
+              </div>
+
+              {/* Mobile Menu Toggle Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 text-white hover:text-[#FFD700] transition-colors drop-shadow-lg"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <span className="text-2xl">✕</span>
+                ) : (
+                  <span className="text-2xl">☰</span>
+                )}
+              </button>
+            </div>
+
+            {/* Mobile Menu - Only show when open */}
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-4 flex flex-col gap-2"
+              >
+                {navLinks.map((link) => (
+                  <a
+                    key={link.section}
+                    href={link.href}
+                    onClick={() => {
+                      setActiveSection(link.section);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`py-3 px-4 rounded-lg text-center font-semibold transition-all ${activeSection === link.section
+                        ? 'bg-white/20 text-[#FFD700] border border-[#FFD700]/50 shadow-lg'
+                        : 'text-white hover:bg-white/10 hover:text-[#3b82f6] border border-white/10'
+                      }`}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+
+                {/* Mobile Book Appointment Button */}
+                <a
+                  href="https://wa.me/919008994827"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 py-3 px-4 bg-gradient-to-r from-[#008A3A] to-[#14532D] text-white rounded-lg text-center font-medium shadow-lg hover:shadow-green-500/50 transition-all"
+                >
+                  📱 Book Appointment
+                </a>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </nav>
     </>
   );
 }
