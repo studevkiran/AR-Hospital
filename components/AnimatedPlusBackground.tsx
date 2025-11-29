@@ -27,7 +27,7 @@ export default function AnimatedPlusBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-30">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-10">
       {plusSymbols.map((symbol) => (
         <motion.div
           key={symbol.id}
@@ -53,17 +53,18 @@ export default function AnimatedPlusBackground() {
             position: 'absolute',
             left: symbol.left,
             fontSize: `${symbol.size}px`,
-            color: '#10b981',
+            fontSize: `${symbol.size}px`,
+            color: '#00C853', // Vibrant Medical Green
             fontWeight: 'bold',
             textShadow: `
-              0 0 20px rgba(16, 185, 129, 0.9),
-              0 0 40px rgba(16, 185, 129, 0.6),
-              0 0 60px rgba(16, 185, 129, 0.4),
-              0 0 80px rgba(16, 185, 129, 0.2)
+              0 0 20px rgba(0, 200, 83, 0.9),
+              0 0 40px rgba(0, 200, 83, 0.6),
+              0 0 60px rgba(0, 200, 83, 0.4),
+              0 0 80px rgba(0, 200, 83, 0.2)
             `,
-            filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.8))',
+            filter: 'drop-shadow(0 0 20px rgba(0, 200, 83, 0.8))',
             willChange: 'transform, opacity',
-            zIndex: 0,
+            zIndex: 10, // Visible but behind high-priority elements
           }}
           className="font-bold"
         >
