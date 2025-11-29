@@ -14,22 +14,22 @@ export default function Hero() {
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-28 pb-12"
       >
         {/* Video Background Container */}
         <div className="absolute inset-0 w-full h-full">
           {/* Hospital Video Background */}
-          <video 
-            autoPlay 
-            loop 
-            muted 
+          <video
+            autoPlay
+            loop
+            muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/Video_Generation_Request_Denied.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          
+
           {/* Subtle dark overlay for text readability - very light */}
           <div className="absolute inset-0 bg-black/10" />
         </div>
@@ -46,20 +46,20 @@ export default function Hero() {
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ 
-                type: 'spring', 
-                stiffness: 200, 
-                delay: 0.2 
+              transition={{
+                type: 'spring',
+                stiffness: 200,
+                delay: 0.2
               }}
-              className="mb-8 md:mb-10 flex justify-center"
+              className="mb-6 md:mb-10 flex justify-center"
             >
               <Image
                 src="/A-R-Hospital-logobg-300x300.png"
                 alt="AR Hospital Logo"
                 width={200}
                 height={200}
-                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 180px, 200px"
+                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 w-32 h-32 md:w-[200px] md:h-[200px]"
+                sizes="(max-width: 768px) 128px, 200px"
                 loading="eager"
                 priority
               />
@@ -70,7 +70,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 px-4 leading-tight relative"
+              className="text-4xl md:text-7xl lg:text-8xl font-black mb-2 md:mb-6 px-4 leading-tight relative"
               style={{
                 fontFamily: "'Roboto', 'Montserrat', 'Open Sans', sans-serif",
                 fontWeight: 900,
@@ -81,7 +81,7 @@ export default function Hero() {
               <span className="relative inline-block">
                 AR Hospital
                 {/* Glowing edge effect */}
-                <span 
+                <span
                   className="absolute inset-0 blur-sm"
                   style={{
                     color: '#3b82f6',
@@ -99,8 +99,8 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 px-4"
-              style={{ 
+              className="text-xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 px-4"
+              style={{
                 fontFamily: "'Georgia', 'Times New Roman', serif",
                 fontStyle: 'italic',
                 color: '#ffd700',
@@ -115,22 +115,22 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-stretch sm:items-center px-4 max-w-3xl mx-auto"
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4 max-w-3xl mx-auto w-full"
             >
               {/* Book Appointment Button - Blue */}
               <motion.button
                 onClick={() => setIsLedgerOpen(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold text-white overflow-hidden transition-all duration-300 flex items-center justify-center gap-3 min-h-[56px]"
+                className="group relative px-6 py-3 md:px-10 md:py-5 rounded-full text-sm md:text-lg font-bold text-white overflow-hidden transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 min-h-[48px] md:min-h-[56px] w-full sm:w-auto whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(145deg, #3b82f6 0%, #06b6d4 100%)',
                   boxShadow: '0 8px 20px rgba(59, 130, 246, 0.6), 0 4px 12px rgba(6, 182, 212, 0.5)',
                 }}
               >
-                <Calendar className="w-5 h-5 md:w-6 md:h-6" />
+                <Calendar className="w-4 h-4 md:w-6 md:h-6" />
                 <span className="relative z-10 drop-shadow-lg">Book Appointment</span>
-                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
               {/* Emergency Call Button - Red with pulse */}
@@ -150,12 +150,12 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold text-white overflow-hidden shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center justify-center gap-3 min-h-[56px]"
+                className="group relative px-6 py-3 md:px-10 md:py-5 rounded-full text-sm md:text-lg font-bold text-white overflow-hidden shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 min-h-[48px] md:min-h-[56px] w-full sm:w-auto whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(145deg, #ef4444 0%, #dc2626 100%)',
                 }}
               >
-                <Phone className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
+                <Phone className="w-4 h-4 md:w-6 md:h-6 animate-pulse" />
                 <span className="relative z-10">Emergency: 0821-3501645</span>
               </motion.a>
             </motion.div>

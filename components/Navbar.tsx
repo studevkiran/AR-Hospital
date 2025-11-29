@@ -320,29 +320,28 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         <div className="lg:hidden bg-transparent border-b border-white/10">
-          <div className="container mx-auto px-4 py-2 bg-black/30">
-            <div className="relative flex items-center h-14">
-              {/* Centered Logo & Text */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
-                <div className="relative w-8 h-8">
+          <div className="container mx-auto px-4 py-4 bg-black/30">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative w-10 h-10">
                   <Image
                     src="/A-R-Hospital-logobg-300x300.png"
                     alt="AR Hospital Logo"
-                    width={32}
-                    height={32}
+                    width={40}
+                    height={40}
                     className="rounded-lg drop-shadow-lg"
                   />
                 </div>
-                <div className="text-center">
-                  <h1 className="text-base font-bold text-white whitespace-nowrap drop-shadow-lg leading-tight">AR Hospital</h1>
-                  <p className="text-[#FFD700] text-[10px] whitespace-nowrap drop-shadow-md leading-tight">Healing Hands</p>
+                <div>
+                  <h1 className="text-lg font-bold text-white whitespace-nowrap drop-shadow-lg">AR Hospital</h1>
+                  <p className="text-[#FFD700] text-xs whitespace-nowrap drop-shadow-md">Healing Hands</p>
                 </div>
               </div>
 
-              {/* Mobile Menu Toggle Button (Pushed to right) */}
+              {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="ml-auto p-2 text-white hover:text-[#FFD700] transition-colors drop-shadow-lg z-20"
+                className="p-2 text-white hover:text-[#FFD700] transition-colors drop-shadow-lg"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
@@ -359,7 +358,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-2 flex flex-col gap-2 pb-6"
+                className="mt-4 flex flex-col gap-2"
               >
                 {navLinks.map((link) => (
                   <a
@@ -383,7 +382,7 @@ export default function Navbar() {
                   href="https://wa.me/919008994827"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 py-3 px-4 bg-gradient-to-r from-[#008A3A] to-[#14532D] text-white rounded-lg text-center font-medium shadow-lg hover:shadow-green-500/50 transition-all mb-2"
+                  className="mt-2 py-3 px-4 bg-gradient-to-r from-[#008A3A] to-[#14532D] text-white rounded-lg text-center font-medium shadow-lg hover:shadow-green-500/50 transition-all"
                 >
                   📱 Book Appointment
                 </a>
