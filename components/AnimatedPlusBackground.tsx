@@ -53,7 +53,6 @@ export default function AnimatedPlusBackground() {
             position: 'absolute',
             left: symbol.left,
             fontSize: `${symbol.size}px`,
-            fontSize: `${symbol.size}px`,
             color: '#00C853', // Vibrant Medical Green
             fontWeight: 'bold',
             textShadow: `
