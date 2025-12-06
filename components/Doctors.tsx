@@ -53,51 +53,97 @@ export default function Doctors() {
   ];
 
   return (
-    <section id="doctors" className="py-24 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
-      {/* Ambient lighting */}
-      <div className="absolute top-20 left-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '5s' }} />
-      <div className="absolute bottom-20 right-20 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDuration: '6s' }} />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="doctors" className="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16"
         >
-          <div className="inline-block mb-4">
-            <Award className="w-16 h-16 text-[#008A3A] mx-auto" style={{ filter: 'drop-shadow(0 0 20px rgba(0, 138, 58, 0.4))' }} />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-[#008A3A] mb-4 drop-shadow-lg"
-            style={{ 
-              filter: 'drop-shadow(0 0 30px rgba(0, 138, 58, 0.2))',
-            }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             Our Expert Doctors
           </h2>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
-            Meet our team of highly qualified and experienced medical professionals
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Experienced medical professionals dedicated to your health
           </p>
         </motion.div>
 
-        {/* Featured Doctors with Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Featured Doctors - Single column on mobile */}
+        <div className="space-y-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-y-0 mb-12 md:mb-16">
           {featuredDoctors.map((doctor, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200"
             >
-              <div className="bg-white rounded-3xl p-6 border-2 border-green-200 hover:border-green-400 shadow-xl hover:shadow-2xl transition-all h-full">
-                {/* Doctor Image */}
-                <div className="relative h-[350px] rounded-2xl overflow-hidden mb-6">
-                  <Image
-                    src={doctor.image}
+              {/* Doctor Image */}
+              <div className="relative h-72 md:h-80 bg-gray-100">
+                <Image
+                  src={doctor.image}
+                  alt={doctor.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+
+              {/* Doctor Info */}
+              <div className="p-6">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                  {doctor.name}
+                </h3>
+                <p className="text-base md:text-lg text-blue-600 font-medium mb-2">
+                  {doctor.specialization}
+                </p>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                  {doctor.qualification}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* All Doctors List - Clean, scannable */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-200"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+            All Doctors
+          </h3>
+          
+          {/* Grid layout - 1 column on mobile, 2 on tablet, 3 on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {allDoctors.map((doctor, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-200"
+              >
+                <span className="text-2xl flex-shrink-0">{doctor.icon}</span>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-base md:text-lg leading-tight">
+                    {doctor.name}
+                  </h4>
+                  <p className="text-sm md:text-base text-gray-600">
+                    {doctor.specialization}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
                     alt={doctor.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

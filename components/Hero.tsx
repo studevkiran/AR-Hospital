@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Calendar } from 'lucide-react';
+import { Phone, MapPin, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import BookingLedger from './BookingLedger';
@@ -14,7 +14,7 @@ export default function Hero() {
       <BookingLedger isOpen={isLedgerOpen} onClose={() => setIsLedgerOpen(false)} />
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-28 pb-12"
+        className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-28 pb-24 md:pb-12"
       >
         {/* Video Background Container */}
         <div className="absolute inset-0 w-full h-full">
@@ -30,145 +30,127 @@ export default function Hero() {
             Your browser does not support the video tag.
           </video>
 
-          {/* Subtle dark overlay for text readability - very light */}
-          <div className="absolute inset-0 bg-black/10" />
+          {/* Darker overlay for better text readability on mobile */}
+          <div className="absolute inset-0 bg-black/40 md:bg-black/10" />
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 md:px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.7 }}
             className="max-w-4xl mx-auto"
           >
-            {/* Logo - Bigger, No Background */}
+            {/* Logo - Optimized for mobile */}
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
                 type: 'spring',
                 stiffness: 200,
-                delay: 0.2
+                delay: 0.1
               }}
-              className="mb-6 md:mb-10 flex justify-center"
+              className="mb-6 md:mb-8 flex justify-center"
             >
               <Image
                 src="/A-R-Hospital-logobg-300x300.png"
                 alt="AR Hospital Logo"
-                width={200}
-                height={200}
-                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 w-40 h-40 md:w-[200px] md:h-[200px]"
-                sizes="(max-width: 768px) 160px, 200px"
+                width={120}
+                height={120}
+                className="object-contain drop-shadow-2xl w-[100px] h-[100px] md:w-[160px] md:h-[160px]"
+                sizes="(max-width: 768px) 100px, 160px"
                 loading="eager"
                 priority
               />
             </motion.div>
 
-            {/* Hospital Name - Bold and Visible */}
+            {/* Mobile-first short tagline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 md:mb-6 px-4 leading-tight relative"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 px-4 leading-tight"
               style={{
-                fontFamily: "'Roboto', 'Montserrat', 'Open Sans', sans-serif",
-                fontWeight: 900,
                 color: '#ffffff',
-                textShadow: '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(14, 165, 233, 0.6), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(37, 99, 235, 0.5)',
+                textShadow: '0 2px 8px rgba(0, 0, 0, 0.8)',
               }}
             >
-              <span className="relative inline-block">
-                AR Hospital
-                {/* Glowing edge effect */}
-                <span
-                  className="absolute inset-0 blur-sm"
-                  style={{
-                    color: '#3b82f6',
-                    textShadow: '0 0 30px #3b82f6, 0 0 60px #0ea5e9',
-                    zIndex: -1,
-                  }}
-                >
-                  AR Hospital
-                </span>
-              </span>
+              AR Hospital, Mysuru
             </motion.h1>
 
-            {/* Tagline */}
+            {/* Short, clear subtitle */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 px-4"
+              transition={{ delay: 0.3 }}
+              className="text-lg md:text-2xl font-medium mb-8 md:mb-10 px-4 text-white"
               style={{
-                fontFamily: "'Georgia', 'Times New Roman', serif",
-                fontStyle: 'italic',
-                color: '#ffd700',
-                textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.5)',
+                textShadow: '0 2px 6px rgba(0, 0, 0, 0.8)',
               }}
             >
-              Healing Hands
+              24/7 Emergency & Specialist Care
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* Primary Action Buttons - Large tap targets for mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4 max-w-3xl mx-auto w-full"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col gap-4 justify-center items-stretch px-4 max-w-md mx-auto w-full"
             >
-              {/* Book Appointment Button - Blue */}
-              <motion.button
-                onClick={() => setIsLedgerOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-6 py-3 md:px-10 md:py-5 rounded-full text-sm md:text-lg font-bold text-white overflow-hidden transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 min-h-[48px] md:min-h-[56px] w-full sm:w-auto whitespace-nowrap"
-                style={{
-                  background: 'linear-gradient(145deg, #3b82f6 0%, #06b6d4 100%)',
-                  boxShadow: '0 8px 20px rgba(59, 130, 246, 0.6), 0 4px 12px rgba(6, 182, 212, 0.5)',
-                }}
-              >
-                <Calendar className="w-4 h-4 md:w-6 md:h-6" />
-                <span className="relative z-10 drop-shadow-lg">Book Appointment</span>
-                <ArrowRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-
-              {/* Emergency Call Button - Red with pulse */}
+              {/* Call Now - Largest, most important action */}
               <motion.a
                 href="tel:08213501645"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{
-                  boxShadow: [
-                    '0 8px 16px rgba(239, 68, 68, 0.4)',
-                    '0 8px 24px rgba(239, 68, 68, 0.6)',
-                    '0 8px 16px rgba(239, 68, 68, 0.4)',
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="group relative px-6 py-3 md:px-10 md:py-5 rounded-full text-sm md:text-lg font-bold text-white overflow-hidden shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 min-h-[48px] md:min-h-[56px] w-full sm:w-auto whitespace-nowrap"
+                whileTap={{ scale: 0.97 }}
+                className="group relative px-8 py-5 rounded-2xl text-lg font-bold text-white transition-all duration-300 flex items-center justify-center gap-3 min-h-[64px] shadow-xl active:shadow-2xl"
                 style={{
-                  background: 'linear-gradient(145deg, #ef4444 0%, #dc2626 100%)',
+                  background: '#2563eb',
                 }}
               >
-                <Phone className="w-4 h-4 md:w-6 md:h-6 animate-pulse" />
-                <span className="relative z-10">Emergency: 0821-3501645</span>
+                <Phone className="w-6 h-6" strokeWidth={2.5} />
+                <span className="text-xl">Call Now</span>
               </motion.a>
+
+              {/* Two-column for Directions and Book */}
+              <div className="grid grid-cols-2 gap-4">
+                <motion.a
+                  href="https://maps.google.com/?q=AR+Hospital+Mysuru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.97 }}
+                  className="px-6 py-4 rounded-2xl text-base font-semibold text-white transition-all flex flex-col items-center justify-center gap-2 min-h-[64px] shadow-lg active:shadow-xl"
+                  style={{
+                    background: '#059669',
+                  }}
+                >
+                  <MapPin className="w-5 h-5" strokeWidth={2.5} />
+                  <span>Directions</span>
+                </motion.a>
+
+                <motion.button
+                  onClick={() => setIsLedgerOpen(true)}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-6 py-4 rounded-2xl text-base font-semibold text-white transition-all flex flex-col items-center justify-center gap-2 min-h-[64px] shadow-lg active:shadow-xl"
+                  style={{
+                    background: '#0891b2',
+                  }}
+                >
+                  <Calendar className="w-5 h-5" strokeWidth={2.5} />
+                  <span>Book</span>
+                </motion.button>
+              </div>
             </motion.div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll indicator - hidden on mobile for cleaner look */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
-              className="mt-16 md:mt-20"
+              transition={{ delay: 0.8 }}
+              className="mt-12 hidden md:block"
             >
               <motion.div
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 className="w-6 h-10 border-2 border-white/60 rounded-full flex items-start justify-center p-2"
               >
@@ -179,9 +161,8 @@ export default function Hero() {
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
       </section>
     </>
   );
 }
-
